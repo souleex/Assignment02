@@ -121,6 +121,26 @@
         document.getElementById("tabs").getElementsByTagName("li");
         //Now get all the tab panel container divs
         document.getElementById("containers").getElementsByTagName("div");
+        
+        //activate the _first_ one
+        displayPanel(tabLinks[0]);
+        
+        //attach even listener to links using onclick and onfocus, fire the displayPanel function, return false to disable the link
+        for (var i=0; i < tablLinks.length; i++)
+        {
+            tablLinks[i].onclick = function()
+            {
+                displayPanel(this);
+                return false;
+                
+            }
+            tablLinks[i].onfocus = function()
+            {
+                displayPanel(this);
+                return false;
+                
+            }
+        }
     }
     
     function displayPanel()
